@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QREncoder</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="//takeash.net/take.css" />
+</head>
+
+<body>
+  <h1>QREncoder</h1>
+  [% IF info %]
+  <div>
+    <pre>[% info %]</pre>
+  </div>
+  [% END %]
+  <div>
+    <form id="formQR" name="formQR" method="post" action="./" enctype="multipart/form-data">
+      <div>
+        <textarea id="textareaText" name="textareaText" rows="5" style="width: 100%;">[% text %]</textarea>
+      </div>
+      <div>
+        <input type="submit" value="Encode">
+      </div>
+    </form>
+    <h2>Result</h2>
+    <div>
+      [% IF qrcode %]
+      <a download="[% fname %].png" href="[% qrcode %]">
+        <img src="[% qrcode %]">
+      </a>
+      [% ELSE %]
+      <img src="image/dummy.png">
+      [% END %]
+    </div>
+  </div>
+</body>
+
+</html>
