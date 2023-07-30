@@ -28,7 +28,7 @@
     <h2>Result</h2>
     <div>
       [% IF qrcode %]
-      <a download="[% fname %].png" href="[% qrcode %]">
+      <a download="[% fname %].png" href="[% qrcode %]" title="Click to download">
         <img src="[% qrcode %]">
       </a>
       [% ELSE %]

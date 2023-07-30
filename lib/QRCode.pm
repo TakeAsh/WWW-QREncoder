@@ -26,7 +26,9 @@ sub makeQRCode {
         level         => 'H',
         casesensitive => 1,
     );
-    my $img  = $qrcode->plot($text);
+    my $img = $qrcode->plot($text);
+    $img->addtag( name => 'i_comment',       value => encode( 'utf8', $text ) );
+    $img->addtag( name => 'png_description', value => encode( 'utf8', $text ) );
     my $name = Data::GUID->new;
     my $path = "/tmp/${name}.png";
     $img->write( file => $path ) or die( "Failed to write: " . $img->errstr );
